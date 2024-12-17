@@ -1,5 +1,4 @@
-import React from 'react';
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
 const data = [
     { day: 'Sat', deposit: 250, withdraw: 500 },
@@ -15,15 +14,17 @@ const WeeklyActivityChart = () => {
     return (
         <div className="mt-4">
             <h2 className="text-xl font-semibold mb-4">Weekly Activity</h2>
-            <BarChart width={730} height={250} data={data}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="day" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="deposit" fill="#4299E0" />
-                <Bar dataKey="withdraw" fill="#000000" />
-            </BarChart>
+            <ResponsiveContainer width="100%" height={250}>
+                <BarChart data={data}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="day" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="deposit" fill="#4299E0" />
+                    <Bar dataKey="withdraw" fill="#000000" />
+                </BarChart>
+            </ResponsiveContainer>
         </div>
     );
 };

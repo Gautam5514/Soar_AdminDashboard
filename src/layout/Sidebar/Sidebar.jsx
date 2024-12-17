@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { personsImgs } from '../../utils/images';
 import { navigationLinks } from '../../data/data';
 import "./Sidebar.css";
 import { useContext } from 'react';
 import { SidebarContext } from '../../context/SideBarContext';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClipboardCheck } from "@fortawesome/free-solid-svg-icons";
 
 
 const Sidebar = () => {
@@ -21,11 +22,15 @@ const Sidebar = () => {
 
     return (
         <div className={`sidebar ${sidebarClass}`}>
-            <div className="user-info">
-                <div className="info-img img-fit-cover">
-                    <img src={personsImgs.person_two} alt="profile image" />
+            <div className="user-info ml-4">
+                <div className="flex items-center space-x-2">
+                    {/* Font Awesome Icon */}
+                    <FontAwesomeIcon icon={faClipboardCheck} className="text-white text-sm" />
+                    {/* Task Text */}
+                    <span className="font-bold text-sm text-white">
+                        Soar Task
+                    </span>
                 </div>
-                <span className="info-name">alice-doe</span>
             </div>
 
             <nav className="navigation">
