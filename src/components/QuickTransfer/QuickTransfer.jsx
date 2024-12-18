@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { iconsImgs } from "../../utils/images";
 
 const QuickTransfer = () => {
@@ -27,12 +27,12 @@ const QuickTransfer = () => {
     ];
 
     return (
-        <div className="p-6 bg-white rounded-lg shadow-lg max-w-md mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl">
+
+        <div className="p-6 bg-white rounded-xl w-[45%] h-[300px] max-w-md mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl">
             {/* Header */}
-            <h2 className="text-xl font-bold mb-4 text-gray-800">Quick Transfer</h2>
 
             {/* Contacts List */}
-            <div className="flex flex-wrap gap-4 items-center justify-between mb-6">
+            <div className="flex flex-wrap gap-4 items-center justify-between mb-6 mt-2">
                 {contacts.map((contact) => (
                     <div key={contact.id} className="flex flex-col items-center space-y-1">
                         <img
@@ -53,8 +53,8 @@ const QuickTransfer = () => {
             </div>
 
             {/* Transfer Section */}
-            <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-3">
-                <span className="text-sm">Write Amount</span>
+            <div className="flex mt-3 flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-3">
+                <span className="text-sm w-[115px]">Write Amount</span>
                 <input
                     type="number"
                     value={amount}
@@ -67,6 +67,7 @@ const QuickTransfer = () => {
                 </button>
             </div>
         </div>
+
     );
 };
 

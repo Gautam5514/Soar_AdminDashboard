@@ -2,7 +2,7 @@
 const Card = () => {
     return (
         <div className="grid-one-item grid grid-cols-1">
-            <h3 className="text-white text-xl font-semibold mb-4">Cards</h3>
+            <h3 className="text-black text-xl font-semibold mb-4 mt-5">My Cards</h3>
             <div className="grid-title bg-gradient-to-r from-gray-600 to-gray-500 rounded-lg p-4 flex justify-between items-center">
                 <div className="grid-content p-4 flex flex-col">
                     <p className="text-gray-400 text-base">Balance</p>

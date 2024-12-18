@@ -2,6 +2,13 @@
 .grid-c2 .grid-item {
   display: flex;
 }
+.tran {
+  height: 250px;
+  margin-top: 50px;
+  background-color: white;
+  color: black;
+}
+
 .grid-c2 .grid-item {
   display: flex;
   justify-content: space-between;
@@ -38,3 +45,4 @@
 .grid-c2 .grid-item-r span {
   font-weight: 500;
 }
+

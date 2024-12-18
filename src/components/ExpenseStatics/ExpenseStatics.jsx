@@ -1,5 +1,4 @@
-import React from 'react';
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
 
 const data = [
     { name: 'Entertainment', value: 30 },
@@ -8,10 +7,9 @@ const data = [
     { name: 'Others', value: 35 },
 ];
 
-const COLORS = ['#333333', '#FF8042', '#387908', '#8884d8'];
+const COLORS = ['#343C6A', '#FC7900', '#007BFF', '#000'];
 
 const RADIAN = Math.PI / 180;
-
 const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
@@ -26,9 +24,8 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 
 const ExpenseStatistics = () => {
     return (
-        <div className="mt-4">
-            <h2 className="text-xl font-semibold mb-4">Expense Statistics</h2>
-            <ResponsiveContainer width="100%" height={250}>
+        <div className="mt-4 bg-white w-full rounded-xl flex justify-center items-center p-4 shadow-lg">
+            <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
                     <Pie
                         data={data}
@@ -36,7 +33,7 @@ const ExpenseStatistics = () => {
                         cy="50%"
                         labelLine={false}
                         label={renderCustomizedLabel}
-                        outerRadius={80}
+                        outerRadius="70%"
                         fill="#8884d8"
                         dataKey="value"
                     >
@@ -44,6 +41,7 @@ const ExpenseStatistics = () => {
                             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                         ))}
                     </Pie>
+                    <Legend layout="horizontal" align="center" verticalAlign="bottom" />
                 </PieChart>
             </ResponsiveContainer>
         </div>

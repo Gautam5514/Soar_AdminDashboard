@@ -1,9 +1,11 @@
 /* sidebar */
 .sidebar {
-  background-color: var(--clr-primary);
+  background-color: white;
   width: 260px;
   padding: 36px 20px;
   transition: var(--transition-default);
+  color: black;
+  margin-right: 1px;
 }
 .user-info {
   display: flex;
@@ -24,7 +26,7 @@
 }
 .info-name {
   font-size: 20px;
-  color: var(--clr-white);
+  color: black;
   text-transform: uppercase;
 }
 .navigation {
@@ -56,6 +58,7 @@
 }
 .nav-link {
   display: block;
+  color: black;
   height: 44px;
   border-radius: 8px;
   display: flex;

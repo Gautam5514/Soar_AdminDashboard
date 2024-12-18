@@ -1,8 +1,9 @@
 import { iconsImgs } from "../utils/images";
 import { personsImgs } from "../utils/images";
 
+// iconsImgs should be defined as required in your code
 export const navigationLinks = [
-    { id: 1, title: 'Dashboard', image: iconsImgs.home },
+    { id: 1, title: 'Dashboard', image: iconsImgs.home, path: '/' },
     { id: 2, title: 'Transactions', image: iconsImgs.plane },
     { id: 3, title: 'Account', image: iconsImgs.user },
     { id: 4, title: 'Investments', image: iconsImgs.budget },
@@ -10,30 +11,31 @@ export const navigationLinks = [
     { id: 6, title: 'Loans', image: iconsImgs.bills },
     { id: 7, title: 'Services', image: iconsImgs.report },
     { id: 8, title: 'My Privileges', image: iconsImgs.wallet },
-    { id: 10, title: 'Settings', image: iconsImgs.gears }
+    { id: 10, title: 'Settings', image: iconsImgs.gears, path: '/setting' }
 ];
+
 
 export const transactions = [
     {
         id: 11,
-        name: "Sarah Parker",
+        name: "Deposite from my card",
         image: personsImgs.person_four,
-        date: "23/12/04",
-        amount: 22000
+        date: "28 january 2021",
+        amount: -850
     },
     {
         id: 12,
-        name: "Krisitine Carter",
+        name: "Deposite paypal",
         image: personsImgs.person_three,
-        date: "23/07/21",
-        amount: 20000
+        date: "25 January 2021",
+        amount: 2500
     },
     {
         id: 13,
-        name: "Irene Doe",
+        name: "Jemi Wilson",
         image: personsImgs.person_two,
-        date: "23/08/25",
-        amount: 30000
+        date: "21 January 2021",
+        amount: 5400
     }
 ];
 

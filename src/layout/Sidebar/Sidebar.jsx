@@ -1,16 +1,15 @@
-import { useEffect, useState } from 'react';
-import { navigationLinks } from '../../data/data';
-import "./Sidebar.css";
-import { useContext } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { SidebarContext } from '../../context/SideBarContext';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClipboardCheck } from "@fortawesome/free-solid-svg-icons";
-
+import { Link, useLocation } from 'react-router-dom';
+import { navigationLinks } from '../../data/data';
+import './Sidebar.css';
 
 const Sidebar = () => {
-    const [activeLinkIdx] = useState(1);
     const [sidebarClass, setSidebarClass] = useState("");
     const { isSidebarOpen } = useContext(SidebarContext);
+    const location = useLocation(); // To get the current route location
 
     useEffect(() => {
         if (isSidebarOpen) {
@@ -24,31 +23,27 @@ const Sidebar = () => {
         <div className={`sidebar ${sidebarClass}`}>
             <div className="user-info ml-4">
                 <div className="flex items-center space-x-2">
-                    {/* Font Awesome Icon */}
                     <FontAwesomeIcon icon={faClipboardCheck} className="text-white text-sm" />
-                    {/* Task Text */}
-                    <span className="font-bold text-sm text-white">
-                        Soar Task
-                    </span>
+                    <span className="font-bold text-xl text-black">Soar Task</span>
                 </div>
             </div>
 
             <nav className="navigation">
                 <ul className="nav-list">
-                    {
-                        navigationLinks.map((navigationLink) => (
-                            <li className="nav-item" key={navigationLink.id}>
-                                <a href="#" className={`nav-link ${navigationLink.id === activeLinkIdx ? 'active' : null}`}>
-                                    <img src={navigationLink.image} className="nav-link-icon" alt={navigationLink.title} />
-                                    <span className="nav-link-text">{navigationLink.title}</span>
-                                </a>
-                            </li>
-                        ))
-                    }
+                    {navigationLinks.map((navigationLink) => (
+                        <li className="nav-item" key={navigationLink.id}>
+                            <Link
+                                to={navigationLink.path} // Uses the path from navigationLinks
+                                className={`nav-link ${location.pathname === navigationLink.path ? 'active' : ''}`}>
+                                <img src={navigationLink.image} className="nav-link-icon" alt={navigationLink.title} />
+                                <span className="nav-link-text">{navigationLink.title}</span>
+                            </Link>
+                        </li>
+                    ))}
                 </ul>
             </nav>
         </div>
-    )
-}
+    );
+};
 
-export default Sidebar
+export default Sidebar;

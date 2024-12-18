@@ -1,14 +1,17 @@
 import "./Content.css";
-import ContentTop from '../../components/ContentTop/ContentTop';
-import ContentMain from '../../components/ContentMain/ContentMain';
+import ContentTop from "../../components/ContentTop/ContentTop";
+import ContentMain from "../../components/ContentMain/ContentMain";
 
 const Content = () => {
     return (
-        <div className='main-content'>
+        <div>
             <ContentTop />
-            <ContentMain />
-        </div>
-    )
-}
 
-export default Content
+            <div className="main-content">
+                <ContentMain />
+            </div>
+        </div>
+    );
+};
+
+export default Content;

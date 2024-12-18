@@ -8,6 +8,9 @@
   grid-template-columns: repeat(3, 1fr);
   column-gap: 16px;
 }
+.content-top-title {
+  font-size: 22px;
+}
 .content-grid-two {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -19,7 +22,10 @@
   row-gap: 20px;
   height: 100%;
 }
-
+.card2 {
+  background-color: white;
+  color: black;
+}
 @media screen and (max-width: 1200px) {
   .content-grid-one,
   .content-grid-two {
