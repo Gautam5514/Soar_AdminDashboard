@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { iconsImgs } from "../../utils/images";
-
+import { iconsImgs, personsImgs } from "../../utils/images";
 const QuickTransfer = () => {
     const [amount, setAmount] = useState(""); // Input state for transfer amount
 
@@ -10,19 +9,19 @@ const QuickTransfer = () => {
             id: 1,
             name: <b>Livia Bator</b>,
             role: <b>CEO</b>,
-            image: "https://via.placeholder.com/50", // Replace with real image links
+            image: personsImgs.person_two, // Replace with real image links
         },
         {
             id: 2,
             name: "Randy Press",
             role: "Director",
-            image: "https://via.placeholder.com/50", // Replace with real image links
+            image: personsImgs.person_one, // Replace with real image links
         },
         {
             id: 3,
             name: "Workman",
             role: "Designer",
-            image: "https://via.placeholder.com/50", // Replace with real image links
+            image: personsImgs.person_three, // Replace with real image links
         },
     ];
 

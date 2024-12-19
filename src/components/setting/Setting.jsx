@@ -1,8 +1,12 @@
+import ContentTop from "../ContentTop/ContentTop";
 import "./Setting.css";
 import { Link } from 'react-router-dom';
 function Setting() {
     return (
+        <div className="top flex-auto" >
+            <ContentTop />
         <div className="profile-container">
+            
             <div className="form-header ">
                 <h3 className="">Edit Profile</h3>
                 <div className="tabs">
@@ -71,6 +75,7 @@ function Setting() {
                     </div>
                 </form>
             </div>
+        </div>
         </div>
     );
 }
