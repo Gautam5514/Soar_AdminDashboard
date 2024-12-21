@@ -1,36 +1,43 @@
 .profile-container {
   width: 90%;
-  height: 95vh;
+  height: auto; /* Allow content height to adjust */
+  min-height: 95vh;
   margin-top: 2px;
   margin: 40px auto;
   background-color: #fff;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Ensure spacing between sections */
 }
 
 .form-header {
   display: flex;
-  gap: 30px;
+  flex-wrap: wrap; /* Adjust for smaller screens */
+  gap: 15px; /* Reduce gap for mobile */
   border-bottom: 1px solid #ddd;
   margin-top: 10px;
+  justify-content: space-between;
+  align-items: center;
 }
-.pre {
-  margin-right: 70px;
-}
+
 .form-header h3 {
   margin: 0;
-  margin-left: 20px;
-  margin-right: 40px;
-  margin-bottom: 10px;
-  font-size: 1.1rem;
+  font-size: 1rem; /* Slightly smaller for better scaling */
   opacity: 0.8;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px; /* Reduce gap for smaller screens */
 }
 
 .tabs span {
   color: #b5cdf3;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1rem; /* Adjust font size for better scaling */
 }
 
 .tabs .active-tab {
@@ -42,7 +49,10 @@
 
 .profile-content {
   display: flex;
+  flex-wrap: wrap; /* Enable wrapping for smaller screens */
   gap: 20px;
+  align-items: center;
+  justify-content: center; /* Center alignment for mobile */
 }
 
 .profile-image {
@@ -51,7 +61,7 @@
   height: 100px;
   border-radius: 50%;
   overflow: hidden;
-  margin: 30px;
+  margin: 10px auto; /* Center image for mobile */
 }
 
 .profile-image img {
@@ -63,10 +73,34 @@
 .profile-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px 30px;
+  gap: 15px 20px;
   flex: 1;
-  margin-right: 15px;
-  margin-top: 30px;
+  width: 100%;
+  margin-right: 0;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .profile-form {
+    grid-template-columns: 1fr; /* Single column for smaller screens */
+    margin-top: 15px;
+  }
+
+  .form-group label {
+    font-size: 0.9rem; /* Adjust for smaller devices */
+  }
+
+  .form-group input {
+    font-size: 0.85rem;
+    height: 35px;
+    padding-left: 10px;
+  }
+
+  .save-btn button {
+    width: 100%; /* Full-width button for mobile */
+    font-size: 1rem;
+    height: 45px;
+  }
 }
 
 .form-group {
@@ -77,12 +111,12 @@
 .form-group label {
   font-size: 1.1rem;
   color: black;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .form-group input {
   border: 1px solid #d3e3fd;
-  height: 30px;
+  height: 40px;
   border-radius: 15px;
   padding: 8px;
   padding-left: 15px;
@@ -90,9 +124,11 @@
   font-size: 0.9rem;
   outline: none;
 }
+
 input::placeholder {
   color: #bcd4f9;
 }
+
 .save-btn {
   grid-column: span 2;
   display: flex;
@@ -110,5 +146,30 @@ input::placeholder {
   font-size: 1.1rem;
   margin-top: 15px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
+.save-btn button:hover {
+  background-color: #333; /* Add hover effect */
+}
+
+/* Ensure the entire form scales down on smaller screens */
+@media (max-width: 480px) {
+  .profile-container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .form-header h3 {
+    font-size: 0.9rem; /* Reduce font size */
+  }
+
+  .tabs span {
+    font-size: 0.9rem;
+  }
+
+  .save-btn button {
+    height: 40px;
+    font-size: 0.9rem;
+  }
+}

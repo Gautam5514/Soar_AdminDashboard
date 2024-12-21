@@ -1,40 +1,46 @@
-/* grid c2 */
-.grid-c2 .grid-item {
-  display: flex;
-}
+/* Base styles */
 .tran {
-  height: 250px;
+  height: auto; /* Adjust to fit content dynamically */
   margin-top: 50px;
   background-color: white;
   color: black;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* Grid container for the Transactions */
 .grid-c2 .grid-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 28px;
 }
+
 .grid-c2 .grid-item:last-child {
   margin-bottom: 0;
 }
-.grid-c2 .grid-item p {
-  color: var(--clr-silver-v1);
-}
-.grid-c2 .grid-item-l .avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 100%;
-  overflow: hidden;
-}
+
+/* Styling for each transaction's left content */
 .grid-c2 .grid-item-l {
   display: flex;
   align-items: center;
   column-gap: 10px;
 }
+
+.grid-c2 .grid-item-l .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  overflow: hidden;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
 .grid-c2 .grid-item-l .text {
   font-weight: 600;
+  color: #333;
 }
+
 .grid-c2 .grid-item-l span {
   display: block;
   font-weight: 400;
@@ -42,7 +48,67 @@
   font-size: 15px;
   color: #8a8587;
 }
+
+/* Styling for each transaction's right content */
 .grid-c2 .grid-item-r span {
   font-weight: 500;
+  color: #e74c3c; /* Scarlet */
 }
 
+/* Media Queries for Responsiveness */
+
+/* Small devices (e.g., mobile) */
+@media (max-width: 768px) {
+  .tran {
+    padding: 15px;
+    margin-top: 20px;
+  }
+
+  /* Stack transaction items vertically on smaller devices */
+  .grid-c2 .grid-item {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 10px;
+  }
+
+  .grid-c2 .grid-item-l {
+    flex-direction: row; /* Avatar and name side by side */
+    align-items: center;
+  }
+
+  .grid-c2 .grid-item-r {
+    align-self: flex-end; /* Align amount to the right */
+  }
+}
+
+/* Extra small devices (e.g., very small phones) */
+@media (max-width: 480px) {
+  .tran {
+    padding: 10px;
+  }
+
+  .grid-c2 .grid-item-l .avatar {
+    width: 30px;
+    height: 30px;
+  }
+
+  .grid-c2 .grid-item-l span {
+    font-size: 13px;
+  }
+
+  .grid-c2 .grid-item-r span {
+    font-size: 14px;
+  }
+}
+
+/* Large devices (e.g., desktops) */
+@media (min-width: 1200px) {
+  .tran {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .grid-c2 .grid-item {
+    margin-bottom: 20px;
+  }
+}

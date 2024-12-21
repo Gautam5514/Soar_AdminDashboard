@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { iconsImgs, personsImgs } from "../../utils/images";
+
 const QuickTransfer = () => {
-    const [amount, setAmount] = useState(""); // Input state for transfer amount
+    const [amount, setAmount] = useState("");
 
     // Sample contact data
     const contacts = [
         {
             id: 1,
-            name: <b>Livia Bator</b>,
-            role: <b>CEO</b>,
+            name: "Livia Bator",
+            role: "CEO",
             image: personsImgs.person_two, // Replace with real image links
         },
         {
@@ -26,14 +27,14 @@ const QuickTransfer = () => {
     ];
 
     return (
-
-        <div className="p-6 bg-white rounded-xl w-[45%] h-[300px] max-w-md mx-auto sm:max-w-lg md:max-w-xl lg:max-w-2xl">
+        <div className="p-6 bg-white rounded-xl w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5 max-w-full mx-auto shadow-lg">
             {/* Header */}
+            <h3 className="text-lg font-semibold text-gray-800 mb-4">Quick Transfer</h3>
 
             {/* Contacts List */}
-            <div className="flex flex-wrap gap-4 items-center justify-between mb-6 mt-2">
+            <div className="flex flex-wrap gap-4 justify-center sm:justify-between mb-6">
                 {contacts.map((contact) => (
-                    <div key={contact.id} className="flex flex-col items-center space-y-1">
+                    <div key={contact.id} className="flex flex-col items-center space-y-1 w-20">
                         <img
                             src={contact.image}
                             alt={contact.name}
@@ -45,28 +46,27 @@ const QuickTransfer = () => {
                         <span className="text-xs text-gray-500">{contact.role}</span>
                     </div>
                 ))}
-                {/* Arrow */}
-                <button className="ml-3">
+                <button className="ml-3 hidden sm:block">
                     <span className="text-2xl text-gray-400 hover:text-black">&gt;</span>
                 </button>
             </div>
 
             {/* Transfer Section */}
-            <div className="flex mt-3 flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-3">
-                <span className="text-sm w-[115px]">Write Amount</span>
+            <div className="flex flex-col sm:flex-row items-center gap-3">
+                <span className="text-sm font-medium w-full sm:w-auto">Write Amount</span>
                 <input
                     type="number"
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
+                    placeholder="Enter amount"
                     className="w-full sm:w-1/2 px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
-                <button className="w-full sm:w-1/3 bg-black text-white px-4 py-2 rounded-full flex items-center justify-center hover:bg-gray-800">
+                <button className="w-full sm:w-auto bg-black text-white px-4 py-2 rounded-full flex items-center justify-center hover:bg-gray-800">
                     Send
                     <img src={iconsImgs.plane} alt="plane icon" className="ml-2 w-4 h-4" />
                 </button>
             </div>
         </div>
-
     );
 };
 
